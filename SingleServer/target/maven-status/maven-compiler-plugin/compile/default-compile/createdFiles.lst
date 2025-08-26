@@ -1,0 +1,3 @@
+pt/ulisboa/tecnico/tuplespaces/server/ServerMain.class
+pt/ulisboa/tecnico/tuplespaces/server/domain/ServerState.class
+pt/ulisboa/tecnico/tuplespaces/server/grpc/TuplespacesServiceImpl.class

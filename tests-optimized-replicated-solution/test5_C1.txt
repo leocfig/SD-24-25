@@ -1,0 +1,4 @@
+put <a>
+take <a> 5 5 5
+put <c>
+exit

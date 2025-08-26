@@ -1,0 +1,7 @@
+put <c>
+take <c> 3 3 3
+put <a>
+sleep 5
+put <c>
+take <c>
+exit

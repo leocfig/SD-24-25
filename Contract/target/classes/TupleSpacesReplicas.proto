@@ -1,0 +1,70 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.tuplespaces.replicated.contract;
+
+// The following option causes top-level messages, enums, and services to be defined at the package level, 
+// rather than inside an outer class named after the .proto file.
+option java_multiple_files = true;
+
+message PutReplicaRequest {
+  int32 clientId = 1;
+  int32 requestNr = 2;
+  string newTuple = 3;
+}
+message PutReplicaResponse {
+}
+
+message ReadReplicaRequest {
+  int32 clientId = 1;
+  int32 requestNr = 2;
+  string searchPattern = 3;
+}
+message ReadReplicaResponse {
+  string result = 1;
+}
+
+message TakeReplicaRequest {
+  int32 clientId = 1;
+  int32 requestNr = 2;
+  string tuple = 3;
+  repeated string releaseTuples = 4;
+  bool unlock = 5;
+}
+
+message TakeReplicaResponse {
+  string result = 1;
+}
+
+message getTupleSpacesStateReplicaRequest {
+  int32 clientId = 1;
+  int32 requestNr = 2;
+}
+
+message getTupleSpacesStateReplicaResponse {
+  repeated string tuple = 1;
+}
+
+message LockReplicaRequest {
+  int32 clientId = 1; // precisamos?
+  string searchPattern = 2;
+}
+
+message LockReplicaResponse {
+  repeated string tuple = 1;  // mudar nome?
+}
+
+message UnlockReplicaRequest {
+  int32 clientId = 1; // precisamos?
+  repeated string tuplesToUnlock = 2;
+}
+
+message UnlockReplicaResponse {
+}
+
+service TupleSpacesReplicas {
+  rpc lock(LockReplicaRequest) returns (LockReplicaResponse);
+  rpc unlock(UnlockReplicaRequest) returns (UnlockReplicaResponse);
+  rpc put(PutReplicaRequest) returns (PutReplicaResponse);
+  rpc read(ReadReplicaRequest) returns (ReadReplicaResponse);
+  rpc take(TakeReplicaRequest) returns (TakeReplicaResponse);
+  rpc getTupleSpacesState(getTupleSpacesStateReplicaRequest) returns (getTupleSpacesStateReplicaResponse);
+}

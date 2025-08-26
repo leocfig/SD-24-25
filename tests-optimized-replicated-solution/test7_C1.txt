@@ -1,0 +1,7 @@
+sleep 1
+put <a>
+put <b>
+put <c>
+take <a.*>
+getTupleSpacesState
+exit

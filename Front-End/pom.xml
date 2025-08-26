@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pt.tecnico.sdis.2025.A02</groupId>
+	<artifactId>FrontEnd</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<version.java>17</version.java>
+
+		<version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
+		<version.exec-maven-plugin>3.0.0</version.exec-maven-plugin>
+
+		<mainclass>pt.ulisboa.tecnico.tuplespaces.frontend.FrontEndMain</mainclass>
+        <frontend.port>2001</frontend.port>  <!-- Frontend listens on 2001 -->
+        <server1.hostport>localhost:3001</server1.hostport>  <!-- Replica 1 at 3001 -->
+        <server2.hostport>localhost:3002</server2.hostport>  <!-- Replica 2 at 3002 -->
+        <server3.hostport>localhost:3003</server3.hostport>  <!-- Replica 3 at 3003 -->
+	</properties>
+
+	<dependencies>
+		<!-- contract brings gRPC dependencies with it -->
+		<dependency>
+			<groupId>pt.tecnico.sdis.2025.A02</groupId>
+			<artifactId>Contract</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.maven-compiler-plugin}</version>
+				<configuration>
+					<source>${version.java}</source>
+					<target>${version.java}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${version.exec-maven-plugin}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>${mainclass}</mainClass>
+					<arguments>
+						<argument>${frontend.port}</argument>
+						<argument>${server1.hostport}</argument>
+						<argument>${server2.hostport}</argument>
+						<argument>${server3.hostport}</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

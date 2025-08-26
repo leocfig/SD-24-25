@@ -1,0 +1,5 @@
+put <c>
+take <c> 2 2 2
+read <c>
+take <c>
+exit

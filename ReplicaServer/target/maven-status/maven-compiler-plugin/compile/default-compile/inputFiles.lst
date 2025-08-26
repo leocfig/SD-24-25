@@ -1,0 +1,4 @@
+/home/leonor/Desktop/SD/A02-Tuplespaces-2025/ReplicaServer/src/main/java/pt/ulisboa/tecnico/tuplespaces/server/ServerMain.java
+/home/leonor/Desktop/SD/A02-Tuplespaces-2025/ReplicaServer/src/main/java/pt/ulisboa/tecnico/tuplespaces/server/domain/ServerState.java
+/home/leonor/Desktop/SD/A02-Tuplespaces-2025/ReplicaServer/src/main/java/pt/ulisboa/tecnico/tuplespaces/server/grpc/HeaderServerInterceptor.java
+/home/leonor/Desktop/SD/A02-Tuplespaces-2025/ReplicaServer/src/main/java/pt/ulisboa/tecnico/tuplespaces/server/grpc/TuplespacesServiceImpl.java

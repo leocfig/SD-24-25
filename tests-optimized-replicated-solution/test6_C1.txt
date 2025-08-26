@@ -1,0 +1,8 @@
+put <a>
+put <b>
+put <c>
+take <a> 10 10 10
+take <b> 3 3 3
+put <d>
+take <c>
+exit

@@ -1,0 +1,4 @@
+take <b.*>
+take <c.*>
+getTupleSpacesState
+exit
