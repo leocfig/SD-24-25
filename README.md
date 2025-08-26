@@ -75,3 +75,9 @@ expected output for some tests.
 
 * [Maven](https://maven.apache.org/) - Build and dependency management tool;
 * [gRPC](https://grpc.io/) - RPC framework.
+
+## Additional Information
+
+Goal: The project requires implementing a distributed tuple space service; The system will be developed using gRPC and Java;
+
+Grade: 19.90/20.00
